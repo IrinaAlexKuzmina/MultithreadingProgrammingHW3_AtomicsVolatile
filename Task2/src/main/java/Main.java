@@ -9,9 +9,9 @@ public class Main {
         final Shop shop = new Shop();
 
         final ExecutorService shopPool = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-        shopPool.submit(new Thread(null, shop::routine, "Магазин 1"));
-        shopPool.submit(new Thread(null, shop::routine, "Магазин 2"));
-        shopPool.submit(new Thread(null, shop::routine, "Магазин 3"));
+        shopPool.submit(shop::routine);
+        shopPool.submit(shop::routine);
+        shopPool.submit(shop::routine);
 
         shopPool.shutdown();
 
